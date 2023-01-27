@@ -1,5 +1,5 @@
 package comabemmodel;
-
+// Classe Produto
 public class Produto {
 
     private String nomeProduto;
@@ -8,7 +8,7 @@ public class Produto {
     private String unidadeMedida;
     private int idUnidadeMedia;
 
-
+        // Retorna escolha do usuário no menu principal
     public String getItem(String numero){
         if (numero.contentEquals("1")) {
             return this.getNome();
@@ -42,7 +42,7 @@ public class Produto {
         }
     }
 
-    //Função que representa a classe em String
+    //Representa a classe em String
     public String toString() {
         return "Nome: " +  this.getNome() + " Valor: " + this.getPreco() + " Quantidade: " + this.getQuantidade() + "   " + this.getUnidadeMedida();
     }

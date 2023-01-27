@@ -17,7 +17,7 @@ public class SelectProduto {
         this.conexaoDB = new Conexao();
         this.conection = this.conexaoDB.getConexao();
     }
-
+    // Realiza Consultas no banco de Dados
     public Produto getProduto(String nomeProduto) {
         try {
             String sql ="SELECT p.nomeProduto, p.valorProduto, p.quantidade, un.descricao FROM produtos AS p INNER JOIN unidademedida AS un WHERE nomeProduto = ? AND un.idUnidadeMedida = p.idUnidadeMedida";
@@ -37,7 +37,7 @@ public class SelectProduto {
         }
         return null;
     }
-
+    // Realiza Consultas no banco de Dados
     public ArrayList<Produto> getPesquisa(String string){
         String sql = "SELECT p.nomeProduto, p.valorProduto, p.quantidade, un.descricao FROM produtos AS p INNER JOIN unidademedida AS un WHERE p.nomeProduto LIKE '%"+ string +"%' AND p.idUnidadeMedida = un.idUnidadeMedida";
         try {

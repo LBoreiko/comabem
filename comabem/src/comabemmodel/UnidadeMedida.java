@@ -1,5 +1,5 @@
 package comabemmodel;
-
+ // Classe Unidade de Medida
 public class UnidadeMedida {
     private int idUnidadeMedida;
     private String unidadeMedida;

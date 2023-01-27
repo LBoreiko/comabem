@@ -13,7 +13,7 @@ public class InserirProduto {
         this.conexaoDB = new Conexao();
         this.conection = this.conexaoDB.getConexao();
     }
-
+    // Realiza o cadastro de um novo produto no banco
     public void inserirProduto(Produto produto) {
         String sql ="INSERT INTO produtos (nomeProduto, valorProduto, quantidade, idUnidadeMedida) VALUES(?, ?, ?, (SELECT idUnidadeMedida  FROM unidademedida WHERE descricao = ?))";
         try {

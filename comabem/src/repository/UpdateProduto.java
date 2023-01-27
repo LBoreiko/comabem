@@ -13,7 +13,7 @@ public class UpdateProduto {
         this.conexaoDB = new Conexao();
         this.conection = this.conexaoDB.getConexao();
     }
-
+        // Realiza atualizações no banco de Dados
     public Produto atualizarProduto(Produto produto, String nomeProduto){
         String sql = "UPDATE produtos p INNER JOIN unidademedida un ON p.idUnidadeMedida = un.idUnidadeMedida SET p.nomeProduto = ?, p.valorProduto = ?, p.quantidade = ?, un.descricao = ? WHERE p.nomeProduto = ?";
         try {

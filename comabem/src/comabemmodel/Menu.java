@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+// Instanciação de Classes
 public class Menu {
     Produto produto = new Produto();
     ArrayList<Produto> produtos = new ArrayList<>();
@@ -18,6 +19,7 @@ public class Menu {
     UpdateProduto updateProduto = new UpdateProduto();
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+    // Funções do Menu Principal
     public void menuPrincipal() throws IOException, InterruptedException{
 
         System.out.println("************************** Menu de Opções **************************\n");
@@ -35,6 +37,7 @@ public class Menu {
         menuEscolha(escolha);
     }
 
+    // Decisão escolhida no menu principal
     public void menuEscolha(String escolha) throws IOException, InterruptedException{
         switch (escolha) {
             case "0":
@@ -61,7 +64,7 @@ public class Menu {
                 break;
         }
     }
-
+    // Limpar Tela
     public void limpaTela() throws InterruptedException, IOException{
         if (System.getProperty("os.name").contains("Windows"))
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -69,7 +72,7 @@ public class Menu {
             Runtime.getRuntime().exec("clear");
     }
 
-
+    // Fechar Sistema
     public void fecharTela() throws InterruptedException, IOException{
         if (System.getProperty("os.name").contains("Windows"))
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -77,13 +80,14 @@ public class Menu {
             Runtime.getRuntime().exec("exit");
     }
 
+    // Menu secundário
     public void menuSecundario() throws IOException, InterruptedException{
         limpaTela();
         System.out.println("************************   Sistema ComaBem   ************************\n");
         menuPrincipal();;
     }
 
-    // Menu responsável para realizar as consulta no banco de dados.
+    // Realiza a consulta no banco de dados.
     public void menuConsulta() throws IOException, InterruptedException{
         limpaTela();
         System.out.println("Digite o nome do produto para consulta: \n");
@@ -103,6 +107,7 @@ public class Menu {
         menuEscolha(decisao);
     }
 
+    // Cadastra um novo produto no banco de dados
     public void menuInsercao() throws IOException, InterruptedException{
         InserirProduto insertProduto = new InserirProduto();
 
@@ -145,7 +150,7 @@ public class Menu {
             menuEscolha("S");
         }
     }
-
+        // Realiza alterações no cadastro do produto
     public void menuAlteracao()throws IOException, InterruptedException{
         System.out.println("Escolha o produto para Alterar:");
         String nomeProduto = br.readLine();
@@ -201,7 +206,7 @@ public class Menu {
             }
         }
     }
-
+        // Exclui produto do cadastro
     public void menuExclusao()throws IOException, InterruptedException{
         System.out.println("Escolha um produto para Excluir:");
         String nomeProduto = br.readLine();
